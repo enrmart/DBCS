@@ -1,0 +1,36 @@
+<p *ngIf="mostrarMensaje">{{mensaje}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form class="form-inline">
+        <fieldset class="form-group col-sm-12"></fieldset>
+        <fieldset class="form-group col-sm-1">
+          <a class="btn btn-primary" [routerLink]="['/vinos/nuevo']">+</a>
+        </fieldset>
+      </form>
+      <table class="table table-striped">
+        <thead>
+        <tr class="row">
+          <th>Nombre</th>
+          <th>Bodega</th>
+          <th>Categoria</th>
+          <th>Denominacion</th>
+          <th>Precio</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let vino of Vinos" class="row">
+          <td><i>{{vino.nombre_comercial}}</i></td>
+          <td><i>{{vino.bodega_id}}</i></td>
+          <td><i>{{vino.categoria}}</i></td>
+          <td><i>{{vino.denominacion}}</i></td>
+          <td><i>{{vino.precio}}</i></td>
+          <td><a class="btn btn-info" [routerLink]= "['/vinos', vino.id,
+ 'editar']" > Editar </a> </td>
+          <td><a class="btn btn-danger" (click)="borrar(vino.id)">-</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
